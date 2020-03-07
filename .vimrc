@@ -6,7 +6,10 @@ call plug#begin('~/.vim/plugged')
 
 	"Git integration
 	Plug 'tpope/vim-fugitive'
-	
+	Plug 'stanangeloff/php.vim'	
+	Plug 'othree/html5.vim'
+	Plug 'hail2u/vim-css3-syntax'
+
 	"thems
 	Plug 'morhetz/gruvbox'
 	Plug 'altercation/vim-colors-solarized'
