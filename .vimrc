@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+
 	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 	Plug 'Valloric/YouCompleteMe'
 	"Для использования набрать YcmGenerateConfig/CCGenerateConfig
@@ -11,14 +12,14 @@ call plug#begin('~/.vim/plugged')
 	Plug 'hail2u/vim-css3-syntax'
 
 	"thems
-	Plug 'morhetz/gruvbox'
+	"Plug 'morhetz/gruvbox'
 	Plug 'altercation/vim-colors-solarized'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'itchyny/lightline.vim'
 call plug#end()
 
-let g:airline_theme='gruvbox'
+"let g:airline_theme='gruvbox'
 "let g:lightline = { 'colorscheme': 'darcula.vim' }
 
 set number
@@ -34,7 +35,9 @@ set nowrap
 "set nosmartindent
 set history=200
 
-colorscheme gruvbox
+"colorscheme gruvbox
+let g:solarized_termcolors=256
+colorscheme solarized
 set background=dark
 
 map <C-n> :NERDTreeToggle<CR>
