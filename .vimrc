@@ -1,9 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-	Plug 'Valloric/YouCompleteMe'
 	"Для использования набрать YcmGenerateConfig/CCGenerateConfig
-	Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 	"Git integration
 	Plug 'tpope/vim-fugitive'
@@ -19,7 +17,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'itchyny/lightline.vim'
 
 	"dubuging
-	Plug 'vim-vdebug/vdebug'
 call plug#end()
 
 "let g:airline_theme='gruvbox'
