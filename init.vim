@@ -1,5 +1,5 @@
 "sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-"
+
 call plug#begin('~/.nvim/plugged')
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'williamboman/nvim-lsp-installer'
@@ -12,8 +12,8 @@ call plug#begin('~/.nvim/plugged')
 	Plug 'hrsh7th/cmp-vsnip'
 	Plug 'hrsh7th/vim-vsnip'
 
-	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-	"Для использования набрать YcmGenerateConfig/CCGenerateConfig
+	Plug 'kyazdani42/nvim-web-devicons'
+	Plug 'kyazdani42/nvim-tree.lua'
 
 	"Git integration
 	Plug 'tpope/vim-fugitive'
@@ -22,17 +22,12 @@ call plug#begin('~/.nvim/plugged')
 	Plug 'hail2u/vim-css3-syntax'
 
 	"thems
-	"Plug 'morhetz/gruvbox'
-	Plug 'altercation/vim-colors-solarized'
+	Plug 'EdenEast/nightfox.nvim'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'itchyny/lightline.vim'
 
-	"dubuging
 call plug#end()
-
-"let g:airline_theme='gruvbox'
-"let g:lightline = { 'colorscheme': 'darcula.vim' }
 
 set number
 set tabstop=4
@@ -47,14 +42,11 @@ set nowrap
 "set nosmartindent
 set history=200
 
-"colorscheme gruvbox
-let g:solarized_termcolors=256
-colorscheme solarized
-set background=dark
-
-map <C-n> :NERDTreeToggle<CR>
+colorscheme carbonfox
 
 set completeopt=menu,menuone,noselect
+
+map <silent> <C-n> :NvimTreeToggle<CR>
 
 lua <<EOF
 
@@ -147,10 +139,7 @@ cmp.setup.cmdline(':', {
 })
 
 local nvim_lsp = require 'lspconfig'
-local on_attach = function(_, bufnr)
-	local function buf_set_option(...)
-	  vim.api.nvim_buf_set_option(bufnr, ...)
-	end
+local on_attach = function(_, bufnr) local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
 	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -193,5 +182,9 @@ for _, lsp in ipairs(servers) do
 		}	
 	}
 end
+
+require('nvim-web-devicons').setup()
+
+require("nvim-tree").setup()
 
 EOF
